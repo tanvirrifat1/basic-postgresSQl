@@ -35,9 +35,21 @@ CREATE TABLE
 
 -- VALUES (1, 'rifat', 'rif@gmial.com', 21)
 
-ALTER TABLE user2 ADD COLUMN password VARCHAR(250) not NULL;
+-- ALTER TABLE user2 ADD COLUMN password VARCHAR(250) not NULL;
 
-SELECT * from user2 ;
+-- SELECT * from user2 ;
+
+-- Department table
+
+INSERT into Department VALUES(1,'it');
+
+SELECT * from Department;
+
+CREATE table
+    Department(
+        deptID serial PRIMARY KEY,
+        deptName VARCHAR(500)
+    );
 
 -- Employee Table
 
@@ -46,5 +58,5 @@ CREATE table
         empID serial PRIMARY KEY,
         empName VARCHAR(50) NOT NULL,
         departmentID INT,
-        constraint fk_
+        constraint fk_constraint_dept Foreign Key (departmentID) REFERENCES Department (deptID)
     )
