@@ -59,4 +59,51 @@ CREATE table
         empName VARCHAR(50) NOT NULL,
         departmentID INT,
         constraint fk_constraint_dept Foreign Key (departmentID) REFERENCES Department (deptID)
+    );
+
+-- create course TABLE
+
+CREATE table
+    courses(
+        course_id SERIAL PRIMARY KEY,
+        course_name VARCHAR(255) not NULL,
+        description VARCHAR (2500),
+        publish_date DATE
+    );
+
+INSERT INTO
+    courses (
+        course_name,
+        description,
+        publish_date
     )
+VALUES (
+        'postgreSQL for developers',
+        'a complete web development course',
+        '2023-1-5'
+    ), (
+        'postgreSQL for developers',
+        'a complete web development course',
+        NULL
+    ), (
+        'postgreSQL for developers',
+        NULL,
+        NULL
+    ), (
+        'Mongoose for developers',
+        'a complete web development course',
+        '2023-12-5'
+    );
+
+-- update database row
+
+UPDATE courses
+set
+    description = 'nice course you can take it'
+WHERE course_id = 3;
+
+--delete table row
+
+DELETE from courses WHERE course_id= 2;
+
+select * from courses;
