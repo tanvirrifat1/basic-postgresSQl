@@ -106,4 +106,25 @@ WHERE course_id = 3;
 
 DELETE from courses WHERE course_id= 2;
 
-select * from courses;
+--
+
+CREATE TABLE
+    if not exists departments(
+        deptID SERIAL PRIMARY KEY,
+        name text not null
+    );
+
+CREATE Table
+    if not exists employees(
+        empID SERIAL PRIMARY KEY,
+        name text not null,
+        email text not null,
+        salary INTEGER NOT NULL,
+        joining_date date not null,
+        deptID INTEGER not NULL,
+        CONSTRAINT fk_deptID Foreign Key (deptID) REFERENCES departments(deptID)
+    );
+
+SELECT * from departments ;
+
+SELECT * from employees ;
