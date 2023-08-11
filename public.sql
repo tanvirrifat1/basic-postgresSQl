@@ -85,3 +85,5 @@ FROM employees
 ORDER BY emp_salary DESC
 LIMIT 1
 OFFSET 2;
+
+SELECT * from employees WHERE emp_name LIKE '%M%';
